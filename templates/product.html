@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>🛍 My Shopping App - Products</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+
+  <header>
+    <h1>🛍 My Shopping App</h1>
+    <nav>
+      <ul>
+        <li><a href="{{ url_for('home') }}">Home</a></li>
+        <li><a href="{{ url_for('product_page') }}" class="active">Products</a></li>
+        <li><a href="{{ url_for('cart_page') }}">Cart</a></li>
+        <li><a href="{{ url_for('profile_page') }}">Profile</a></li>
+        <li><a href="{{ url_for('contact_page') }}">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <div class="search-bar">
+    <input type="text" placeholder="Search products..." id="searchInput" onkeyup="searchProducts()">
+    <button>🔍</button>
+  </div>
+
+  <aside class="sidebar">
+    <h3>Categories</h3>
+    <ul>
+      <li><a href="{{ url_for('product_page') }}">Electronics</a></li>
+      <li><a href="{{ url_for('product_page') }}">Clothing</a></li>
+      <li><a href="{{ url_for('product_page') }}">Home</a></li>
+      <li><a href="{{ url_for('product_page') }}">Toys</a></li>
+      <li><a href="{{ url_for('product_page') }}">Accessories</a></li>
+    </ul>
+  </aside>
+
+  <section class="products">
+    <h2>Featured Products</h2>
+    <div class="product-list" id="productList">
+
+      <!-- Each product -->
+      <div class="product-card">
+        <img src="https://m.media-amazon.com/images/I/714hINuPoBL._AC_UY436_FMwebp_QL65_.jpg" alt="Dslr">
+        <h3>Dslr</h3>
+        <p>₹34999</p>
+        <button onclick="addToCart('Dslr', 34999)">Add to Cart</button>
+      </div>
+
+      <div class="product-card">
+        <img src="https://m.media-amazon.com/images/I/71jG+e7roXL._AC_UY436_FMwebp_QL65_.jpg" alt="MacBook">
+        <h3>MacBook</h3>
+        <p>₹79999</p>
+        <button onclick="addToCart('MacBook', 79999)">Add to Cart</button>
+      </div>
+
+      <div class="product-card">
+        <img src="https://m.media-amazon.com/images/I/7112BpcDsnL._AC_UL640_FMwebp_QL65_.jpg" alt="School Bag">
+        <h3>School Bag</h3>
+        <p>₹1299</p>
+        <button onclick="addToCart('School Bag', 1299)">Add to Cart</button>
+      </div>
+
+      <div class="product-card">
+        <img src="https://m.media-amazon.com/images/I/617AAEmjdbL._AC_UY436_FMwebp_QL65_.jpg" alt="Headphone">
+        <h3>Headphone</h3>
+        <p>₹5999</p>
+        <button onclick="addToCart('Headphone', 5999)">Add to Cart</button>
+      </div>
+
+      <div class="product-card">
+        <img src="https://m.media-amazon.com/images/I/81tQhEEtiEL._AC_UL640_FMwebp_QL65_.jpg" alt="Guitar">
+        <h3>Guitar</h3>
+        <p>₹9999</p>
+        <button onclick="addToCart('Guitar', 9999)">Add to Cart</button>
+      </div>
+
+      <div class="product-card">
+        <img src="https://m.media-amazon.com/images/I/71-d7XDbhIL._AC_UY436_FMwebp_QL65_.jpg" alt="Mobile">
+        <h3>Mobile</h3>
+        <p>₹19999</p>
+        <button onclick="addToCart('Mobile', 19999)">Add to Cart</button>
+      </div>
+
+      <div class="product-card">
+        <img src="https://m.media-amazon.com/images/I/51Q+hNO39kL._AC_UY436_FMwebp_QL65_.jpg" alt="TV">
+        <h3>TV</h3>
+        <p>₹74999</p>
+        <button onclick="addToCart('TV', 74999)">Add to Cart</button>
+      </div>
+
+      <div class="product-card">
+        <img src="https://m.media-amazon.com/images/I/71uj3g0flUL._AC_UL640_FMwebp_QL65_.jpg" alt="Sun Glass">
+        <h3>Sun Glass</h3>
+        <p>₹2599</p>
+        <button onclick="addToCart('Sun Glass', 2599)">Add to Cart</button>
+      </div>
+
+      <div class="product-card">
+        <img src="https://m.media-amazon.com/images/I/71wQBXJkgUL.AC_UL640_FMwebp_QL65.jpg" alt="T-shirt">
+        <h3>T-shirt</h3>
+        <p>₹2999</p>
+        <button onclick="addToCart('T-shirt', 2999)">Add to Cart</button>
+      </div>
+
+      <div class="product-card">
+        <img src="https://m.media-amazon.com/images/I/61aPY8odPSL.AC_UY436_FMwebp_QL65.jpg" alt="Ipad">
+        <h3>Ipad</h3>
+        <p>₹52999</p>
+        <button onclick="addToCart('Ipad', 52999)">Add to Cart</button>
+      </div>
+
+      <div class="product-card">
+        <img src="https://m.media-amazon.com/images/I/71Nn52xi20L.AC_UY436_FMwebp_QL65.jpg" alt="Washing Machine">
+        <h3>Washing Machine</h3>
+        <p>₹39000</p>
+        <button onclick="addToCart('Washing Machine', 39000)">Add to Cart</button>
+      </div>
+
+      <div class="product-card">
+        <img src="https://m.media-amazon.com/images/I/51YefN6Fw4L.AC_UY436_FMwebp_QL65.jpg" alt="Face Wash">
+        <h3>Face Wash</h3>
+        <p>₹299</p>
+        <button onclick="addToCart('Face Wash', 299)">Add to Cart</button>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="footer-container">
+      <div class="footer-section">
+        <h4>My Shopping App</h4>
+        <p>&copy; 2025 My Shopping App. All rights reserved.</p>
+        <p>📧 <a href="mailto:support@shoppingapp.com">support@shoppingapp.com</a></p>
+        <p>☎ <a href="tel:123-456-7890">123-456-7890</a></p>
+        <p>📍 NH-05, Chandigarh-Ludhiana Highway, India, 140413</p>
+      </div>
+
+      <div class="footer-section">
+        <h4>Company</h4>
+        <ul>
+          <li><a href="#">About Us</a></li>
+          <li><a href="#">Careers</a></li>
+          <li><a href="#">Blog</a></li>
+          <li><a href="#">Sitemap</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-section">
+        <h4>Support</h4>
+        <ul>
+          <li><a href="#">FAQ</a></li>
+          <li><a href="{{ url_for('contact_page') }}">Contact Us</a></li>
+          <li><a href="#">Shipping & Returns</a></li>
+          <li><a href="#">Order Tracking</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-section">
+        <h4>Legal</h4>
+        <ul>
+          <li><a href="#">Privacy Policy</a></li>
+          <li><a href="#">Terms of Service</a></li>
+          <li><a href="#">Cookie Policy</a></li>
+        </ul>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    async function addToCart(name, price) {
+      const response = await fetch('/add_to_cart', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ product_name: name, price: price })
+      });
+      const data = await response.json();
+      alert(data.message);
+    }
+
+    // Optional: live search filter for presentation
+    function searchProducts() {
+      const query = document.getElementById('searchInput').value.toLowerCase();
+      const cards = document.querySelectorAll('.product-card');
+      cards.forEach(card => {
+        const title = card.querySelector('h3').textContent.toLowerCase();
+        card.style.display = title.includes(query) ? 'block' : 'none';
+      });
+    }
+  </script>
+
+</body>
+</html>
